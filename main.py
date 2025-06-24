@@ -5,15 +5,35 @@ That is, delete the sense_hat.py file that is included in this bundle."""
 import time
 
 from happy import Happy
+from sad import Sad
+from angry import Angry
 
 def main():
-    smiley = Happy()
-
-    smiley.show()
-
+    # Test Happy smiley
+    print("Testing Happy smiley...")
+    happy_smiley = Happy()
+    happy_smiley.show()
     time.sleep(1)
-
-    smiley.blink()
+    happy_smiley.blink()
+    
+    time.sleep(2)  # Pause between tests
+    
+    # Test Sad smiley
+    print("Testing Sad smiley...")
+    sad_smiley = Sad()
+    sad_smiley.show()
+    time.sleep(1)
+    sad_smiley.blink()
+    
+    time.sleep(2)  # Pause between tests
+    
+    # Test Angry smiley
+    print("Testing Angry smiley...")
+    angry_smiley = Angry()
+    angry_smiley.show()
+    time.sleep(1)
+    # Angry smiley doesn't have blink method, so just display it
+    print("Angry smiley displayed (no blinking)")
 
 if __name__ == '__main__':
     ############################################################
@@ -22,4 +42,3 @@ if __name__ == '__main__':
     # freeze_support()
     ############################################################
     main()
-

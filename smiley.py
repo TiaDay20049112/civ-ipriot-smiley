@@ -6,13 +6,19 @@ class Smiley:
     GREEN = (0, 255, 0)
     RED = (255, 0, 0)
     YELLOW = (255, 255, 0)
+    BLUE = (0, 0, 255)
     BLANK = (0, 0, 0)
 
-    def __init__(self):
+    def __init__(self, complexion=None):
         # We have encapsulated the SenseHat object
         self.sense_hat = SenseHat()
+        
+        # Set the complexion, defaulting to YELLOW if not provided
+        if complexion is None:
+            complexion = self.YELLOW
+        self.my_complexion = complexion
 
-        Y = self.YELLOW
+        Y = self.my_complexion
         O = self.BLANK
         self.pixels = [
             O, Y, Y, Y, Y, Y, Y, O,
@@ -31,6 +37,12 @@ class Smiley:
         :param dimmed: Dim the display if True, otherwise don't dim
         """
         self.sense_hat.low_light = dimmed
+
+    def complexion(self):
+        """
+        Return the complexion (color) of the smiley
+        """
+        return self.my_complexion
 
     def show(self):
         """
